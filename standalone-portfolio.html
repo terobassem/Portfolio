@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phelobater Bassem Basha | Pure React Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- React & ReactDOM from CDN for zero-setup standalone viewing -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(19, 30, 54, 0.6);
+      --bg-glass: rgba(15, 23, 42, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(6, 182, 212, 0.4);
+      --color-cyan: #06b6d4;
+      --color-blue: #3b82f6;
+      --color-emerald: #10b981;
+      --color-indigo: #6366f1;
+      --text-white: #f8fafc;
+      --text-gray: #cbd5e1;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-main);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .card-glass {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    .card-glass:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px -8px rgba(6, 182, 212, 0.15);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-blue) 100%);
+      color: #090d16; font-weight: 700; font-size: 14px; padding: 12px 24px;
+      border-radius: var(--radius-md); text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.05); color: var(--text-white);
+      font-weight: 600; font-size: 14px; padding: 12px 24px;
+      border-radius: var(--radius-md); text-decoration: none;
+      border: 1px solid var(--border-subtle); cursor: pointer;
+    }
+    .section-pill {
+      display: inline-block; font-family: var(--font-mono); font-size: 11px;
+      text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-cyan);
+      background: rgba(6, 182, 212, 0.1); padding: 6px 16px; border-radius: 9999px;
+      border: 1px solid rgba(6, 182, 212, 0.25); margin-bottom: 12px;
+    }
+    .section-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .section-subtitle { color: var(--text-muted); font-size: 1rem; max-width: 650px; margin: 0 auto; }
+    .section-divider { width: 80px; height: 4px; background: linear-gradient(90deg, var(--color-cyan), var(--color-blue)); border-radius: 4px; margin: 16px auto 0 auto; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-emerald); box-shadow: 0 0 10px var(--color-emerald); display: inline-block; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 14px 0; background: rgba(9, 13, 22, 0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); }
+    .nav-content { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+    .logo-badge { width: 38px; height: 38px; background: linear-gradient(135deg, var(--color-cyan), var(--color-blue)); color: #090d16; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: var(--font-mono); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); }
+    .nav-link:hover { color: var(--color-cyan); background: rgba(6, 182, 212, 0.1); }
+    .hero-section { padding-top: 130px; padding-bottom: 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+    .text-gradient { background: linear-gradient(135deg, #22d3ee, #06b6d4, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .portrait-card { border-radius: var(--radius-lg); overflow: hidden; background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); }
+    .portrait-img { width: 100%; height: 380px; object-fit: cover; object-position: top; display: block; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .progress-track { width: 100%; height: 6px; background: #1e293b; border-radius: 9999px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, var(--color-cyan), var(--color-blue)); }
+    .tag-badge { font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.04); color: var(--text-gray); border: 1px solid var(--border-subtle); display: inline-block; }
+    .timeline { position: relative; border-left: 2px solid var(--border-subtle); margin-left: 20px; padding-left: 28px; }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-marker { position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #090d16; border: 3px solid var(--color-cyan); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (max-width: 900px) {
+      .hero-grid, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function App() {
+      const [copied, setCopied] = useState(false);
+
+      const copyEmail = () => {
+        navigator.clipboard.writeText("terobassem.5@gmail.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      };
+
+      return (
+        <div>
+          {/* Navbar */}
+          <nav className="navbar">
+            <div className="container nav-content">
+              <a href="#home" className="nav-logo">
+                <div className="logo-badge">PB</div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '15px' }}>Phelobater Bassem <span className="status-dot"></span></div>
+                  <div style={{ fontSize: '11px', color: 'var(--color-cyan)', fontFamily: 'var(--font-mono)' }}>Software Engineer</div>
+                </div>
+              </a>
+              <div className="nav-links">
+                <a href="#about" className="nav-link">About</a>
+                <a href="#skills" className="nav-link">Skills</a>
+                <a href="#experience" className="nav-link">Experience</a>
+                <a href="#projects" className="nav-link">Projects</a>
+                <a href="#contact" className="nav-link">Contact</a>
+              </div>
+              <a href="mailto:terobassem.5@gmail.com" className="btn-primary" style={{ padding: '8px 16px', fontSize: '12px' }}>
+                Contact
+              </a>
+            </div>
+          </nav>
+
+          {/* Hero */}
+          <section id="home" className="hero-section">
+            <div className="container">
+              <div className="hero-grid">
+                <div>
+                  <div className="section-pill" style={{ marginBottom: '14px' }}>
+                    <span className="status-dot" style={{ marginRight: '6px' }}></span>
+                    Available for Software Engineer Roles
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--text-muted)' }}>HELLO, I AM</div>
+                  <h1 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '10px' }}>
+                    Phelobater <span className="text-gradient">Bassem</span> Basha
+                  </h1>
+                  <h2 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-mono)', color: 'var(--color-cyan)', marginBottom: '18px' }}>
+                    &gt; Software Engineer & Full-Stack MERN
+                  </h2>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '24px' }}>
+                    Computers & AI student at <strong>Helwan University</strong>. Specialized in MERN Stack and Data Engineering.
+                  </p>
+                  <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '32px' }}>
+                    <a href="#projects" className="btn-primary">View Projects</a>
+                    <a href="#contact" className="btn-secondary">Get in Touch</a>
+                    <a href="https://linkedin.com/in/phelobater-b-basha" target="_blank" className="btn-secondary">LinkedIn</a>
+                  </div>
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                    <span className="tag-badge">📍 Cairo, Egypt</span>
+                    <span className="tag-badge">🎓 FCI Helwan University</span>
+                    <span className="tag-badge">💼 DEPI Data Engineering</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div style={{ width: '100%', maxWidth: '340px' }} className="portrait-card">
+                    <img src="./public/avatar.jpg" alt="Phelobater Bassem Basha" className="portrait-img" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"}} />
+                    <div style={{ padding: '16px', background: '#0f172a' }}>
+                      <div style={{ fontWeight: 700, color: '#fff' }}>Phelobater Bassem Basha</div>
+                      <div style={{ fontSize: '12px', color: 'var(--color-cyan)', fontFamily: 'var(--font-mono)' }}>Software Engineer</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Education & About */}
+          <section id="about" style={{ padding: '70px 0', background: 'rgba(10,15,29,0.5)' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span className="section-pill">About</span>
+                <h2 className="section-title">Background & Education</h2>
+                <div className="section-divider"></div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                <div className="card-glass" style={{ padding: '30px' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '12px' }}>Professional Profile</h3>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '14px', lineHeight: '1.7', marginBottom: '12px' }}>
+                    Motivated software engineer with experience across full-stack web applications and data engineering workflows with Python, SQL, and Azure.
+                  </p>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '14px', lineHeight: '1.7' }}>
+                    Proven background working with teams at DEPI, SMG Auto, Orange Egypt, and university tech chapters.
+                  </p>
+                </div>
+                <div className="card-glass" style={{ padding: '30px', borderColor: 'rgba(6,182,212,0.3)' }}>
+                  <span className="section-pill">Helwan University</span>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '6px' }}>Computers and Artificial Intelligence</h3>
+                  <div style={{ color: 'var(--color-cyan)', fontSize: '13px', fontFamily: 'var(--font-mono)', marginBottom: '14px' }}>Information Systems Department (09/2023 – Present)</div>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '13px' }}>Cairo, Egypt • Data Structures, Algorithms, Database Systems, Network Architecture, OOP.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Skills */}
+          <section id="skills" style={{ padding: '70px 0' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span className="section-pill">Skills</span>
+                <h2 className="section-title">Technical Expertise</h2>
+                <div className="section-divider"></div>
+              </div>
+              <div className="skills-grid">
+                <div className="card-glass" style={{ padding: '24px' }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>Front-End</h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {['React.js', 'JavaScript ES6+', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive UI'].map((s, i) => (
+                      <span key={i} className="tag-badge" style={{ padding: '6px 12px', fontSize: '12px' }}>{s}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="card-glass" style={{ padding: '24px' }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>Back-End & Data</h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {['Node.js', 'Express.js', 'REST APIs', 'SQL', 'MySQL', 'MongoDB', 'Python Data Analysis', 'Azure Cloud'].map((s, i) => (
+                      <span key={i} className="tag-badge" style={{ padding: '6px 12px', fontSize: '12px' }}>{s}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="card-glass" style={{ padding: '24px' }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>CS Fundamentals & Systems</h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {['OOP', 'Data Structures', 'Algorithms', 'Networking', 'Windows Server', 'Git & GitHub'].map((s, i) => (
+                      <span key={i} className="tag-badge" style={{ padding: '6px 12px', fontSize: '12px' }}>{s}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Projects */}
+          <section id="projects" style={{ padding: '70px 0', background: 'rgba(10,15,29,0.5)' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span className="section-pill">Featured Project</span>
+                <h2 className="section-title">Production Web Application</h2>
+                <div className="section-divider"></div>
+              </div>
+              <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                <div className="card-glass" style={{ padding: '36px', borderColor: 'rgba(6,182,212,0.4)', boxShadow: '0 20px 40px rgba(6,182,212,0.1)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+                    <span className="section-pill" style={{ margin: 0, padding: '3px 10px', fontSize: '11px' }}>Featured MERN Stack App</span>
+                    <a href="https://khedma-5-6.up.railway.app/" target="_blank" style={{ color: 'var(--color-emerald)', fontSize: '12px', fontFamily: 'var(--font-mono)', textDecoration: 'none', background: 'rgba(16,185,129,0.1)', padding: '4px 10px', borderRadius: '9999px', border: '1px solid rgba(16,185,129,0.3)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span className="status-dot"></span>
+                      <span>Live on Railway</span>
+                    </a>
+                  </div>
+                  <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>Khedma 5&6 Web Application</h3>
+                  <div style={{ color: 'var(--color-cyan)', fontSize: '13px', fontFamily: 'var(--font-mono)', marginBottom: '16px' }}>Educational & Church Activity Management Platform</div>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '14px', lineHeight: '1.7', marginBottom: '20px' }}>
+                    Full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application engineered for organizing educational curricula, attendance logging, and church community events for 5th and 6th-grade students.
+                  </p>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+                    <span className="tag-badge">React.js</span>
+                    <span className="tag-badge">Node.js</span>
+                    <span className="tag-badge">Express.js</span>
+                    <span className="tag-badge">MongoDB</span>
+                    <span className="tag-badge">JWT Auth</span>
+                    <span className="tag-badge">REST API</span>
+                  </div>
+                  <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                    <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                      Production: <a href="https://khedma-5-6.up.railway.app/" target="_blank" style={{ color: 'var(--color-cyan)' }}>khedma-5-6.up.railway.app</a>
+                    </span>
+                    <a href="https://khedma-5-6.up.railway.app/" target="_blank" className="btn-primary" style={{ padding: '10px 20px', fontSize: '13px' }}>
+                      Open Live Application ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section id="contact" style={{ padding: '70px 0' }}>
+            <div className="container" style={{ textAlign: 'center' }}>
+              <span className="section-pill">Get In Touch</span>
+              <h2 className="section-title">Contact Phelobater Bassem Basha</h2>
+              <p className="section-subtitle" style={{ marginBottom: '30px' }}>
+                Open to Software Engineering positions, internships, and tech collaborations.
+              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                <a href="mailto:terobassem.5@gmail.com" className="btn-primary">
+                  Email: terobassem.5@gmail.com
+                </a>
+                <a href="tel:01228646329" className="btn-secondary">
+                  Call: +20 122 864 6329
+                </a>
+                <a href="https://linkedin.com/in/phelobater-b-basha" target="_blank" className="btn-secondary">
+                  LinkedIn Profile
+                </a>
+              </div>
+              <div style={{ marginTop: '30px', fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                📍 19 Eladawy st Elmaadi, Cairo, Egypt
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer style={{ borderTop: '1px solid var(--border-subtle)', padding: '24px 0', textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+            © {new Date().getFullYear()} Phelobater Bassem Basha • Pure React Portfolio
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
