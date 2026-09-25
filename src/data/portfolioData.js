@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Phelobater Bassem Basha",
   role: "Software Engineer",
-  tagline: "Building scalable web platforms, robust data pipelines, and high-reliability enterprise solutions.",
+  tagline: "Building scalable web platforms, robust data pipelines, and high-reliability software solutions.",
   roles: [
     "Software Engineer",
     "Full-Stack MERN Developer",
@@ -47,6 +47,7 @@ export const experiences = [
     period: "07/2026 – Present",
     location: "Egypt",
     badge: "Current",
+    image: "/certificates/depi.jpg",
     description: "Hands-on data engineering track focused on distributed systems, data manipulation pipelines, and enterprise cloud data warehouse practices.",
     skills: ["Python", "SQL", "Big Data", "Azure Cloud", "Data Analysis", "ETL"],
     highlights: [
@@ -58,22 +59,24 @@ export const experiences = [
   },
   {
     id: "smg-erp",
-    title: "Oracle ERP Techno-Functional Intern",
+    title: "Techno-Functional Intern",
     company: "SMG Engineering Auto",
-    type: "Enterprise ERP",
+    type: "Automotive Engineering Systems",
     period: "07/2026 – 08/2026",
     location: "Cairo, Egypt",
-    badge: "Enterprise",
-    description: "Configured and validated enterprise-grade supply chain and financial business processes within Oracle ERP suite.",
-    skills: ["Oracle ERP", "Order Management (OM)", "Order to Cash (O2C)", "Oracle SQL", "Inventory", "Receivables"],
+    badge: "Engineering",
+    image: "/certificates/smg.jpg",
+    images: ["/certificates/smg.jpg", "/certificates/smg-2.jpg"],
+    description: "Configured and validated enterprise order workflows and transactional data integrity checks.",
+    skills: ["Order Management (OM)", "Order to Cash (O2C)", "SQL Data Validation", "Inventory Tracking"],
     highlights: [
-      "Configured Order Management (OM) transaction types, lines, and system approval workflows",
-      "Engineered end-to-end Order to Cash (O2C) flows connecting sales orders, shipping, and invoicing",
-      "Assisted in Accounts Receivables setup, transaction batch creation, and reconciliation",
-      "Managed master data: created, categorized, and assigned inventory items and unit-of-measure mappings",
-      "Authored Oracle SQL queries for backend data integrity checks and transactional auditing"
+      "Configured Order Management transaction types, lines, and system approval workflows",
+      "Engineered end-to-end Order to Cash (O2C) flows connecting orders, logistics, and invoicing",
+      "Assisted in transaction batch creation, reconciliation, and master inventory data auditing",
+      "Authored SQL queries for backend data integrity checks and transactional validation"
     ]
   },
+
   {
     id: "orange",
     title: "Sales and Customer Support Representative",
@@ -104,22 +107,6 @@ export const experiences = [
       "Administered Windows Server environments, user permission groups, and network file shares",
       "Provided tier-1 and tier-2 help desk support resolving hardware, software, and domain connectivity issues",
       "Assisted in rolling out enterprise IT solutions, system upgrades, and workstation deployments"
-    ]
-  },
-  {
-    id: "codealpha",
-    title: "Frontend Web Developer Intern",
-    company: "CodeAlpha",
-    type: "Web Development",
-    period: "03/2025 – 04/2025",
-    location: "Remote",
-    badge: "Frontend",
-    description: "Developed modern, responsive front-end web applications with clean code architecture and responsive CSS styling.",
-    skills: ["HTML5", "CSS3", "JavaScript", "React.js", "Responsive Design", "Git"],
-    highlights: [
-      "Engineered responsive, cross-browser user interfaces adhering to UI/UX accessibility standards",
-      "Implemented modular JavaScript components and clean CSS layout techniques",
-      "Collaborated remotely using Git version control and milestone-driven task boards"
     ]
   },
   {
@@ -169,10 +156,10 @@ export const skillCategories = [
       { name: "React.js", highlighted: true },
       { name: "JavaScript (ES6+)", highlighted: true },
       { name: "Tailwind CSS", highlighted: true },
-      { name: "HTML5 & Semantic Markup", highlighted: false },
-      { name: "CSS3 & Modern Layouts", highlighted: false },
-      { name: "Responsive & Adaptive UI", highlighted: false },
-      { name: "State Management", highlighted: false }
+      { name: "HTML5 & Semantic Markup", highlighted: true },
+      { name: "CSS3 & Modern Layouts", highlighted: true },
+      { name: "Responsive & Adaptive UI", highlighted: true },
+      { name: "State Management", highlighted:true }
     ]
   },
   {
@@ -182,22 +169,21 @@ export const skillCategories = [
       { name: "Node.js", highlighted: true },
       { name: "Express.js", highlighted: true },
       { name: "RESTful API Design", highlighted: true },
-      { name: "PHP (ITI Certified)", highlighted: false },
+      { name: "PHP (ITI Certified)", highlighted: true },
       { name: "Object-Oriented Programming (OOP)", highlighted: true },
-      { name: "Authentication & JWT", highlighted: false }
+      { name: "Authentication & JWT", highlighted: true }
     ]
   },
   {
-    name: "Databases & Data Engineering",
+    name: "Data Engineering",
     icon: "Database",
     skills: [
       { name: "SQL", highlighted: true },
-      { name: "MySQL", highlighted: true },
-      { name: "MongoDB", highlighted: true },
-      { name: "Oracle SQL", highlighted: true },
-      { name: "Python for Data Analysis", highlighted: true },
-      { name: "Big Data Principles", highlighted: false },
-      { name: "Azure Cloud", highlighted: false }
+            { name: "Python for Data Analysis", highlighted: true },
+      { name: "Spark", highlighted: true },
+      { name: "Data Warehouse", highlighted: true },
+      { name: "Big Data Principles", highlighted: true },
+      { name: "Azure Cloud", highlighted: true }
     ]
   },
   {
@@ -206,10 +192,8 @@ export const skillCategories = [
     skills: [
       { name: "Data Structures", highlighted: true },
       { name: "Algorithms", highlighted: true },
-      { name: "Computer Networking", highlighted: false },
-      { name: "Windows Server", highlighted: false },
-      { name: "IT Helpdesk & Troubleshooting", highlighted: false },
-      { name: "Git & GitHub", highlighted: false }
+      { name: "Computer Networking", highlighted: true },
+      { name: "Git & GitHub", highlighted: true }
     ]
   },
   {
@@ -227,43 +211,63 @@ export const skillCategories = [
 
 export const certifications = [
   {
+    id: "maharatech",
     title: "Building Web Applications using PHP & MYSQL",
     issuer: "Mahara-Tech ITI (Information Technology Institute)",
     badge: "Full-Stack Web",
     date: "Certified",
+    image: "/certificates/maharatech.jpg",
     description: "Comprehensive certification covering relational database integration, backend PHP script architecture, session management, and secure web application development.",
     skills: ["PHP", "MySQL", "Web Security", "Database Systems"]
   },
   {
-    title: "Frontend Development",
-    issuer: "S.E Future Academy",
-    badge: "Frontend Engineering",
+    id: "hp",
+    title: "HP Intro to Data Science",
+    issuer: "HP LIFE (Data Science & Analytics)",
+    badge: "Data Science",
+    date: "05/2025",
+    image: "/certificates/hp.jpg",
+    description: "Credential for completing the HP LIFE course in Data Science & Analytics, exploring data-driven approaches, analytical methodologies, and business problem solving.",
+    skills: ["Data Science", "Data Analytics", "Python", "Analytics Practices"]
+  },
+  {
+    id: "codealpha",
+    title: "Frontend Web Development Internship",
+    issuer: "CodeAlpha Web Development",
+    badge: "Internship Certificate",
+    date: "04/2025",
+    image: "/certificates/codealpha.jpg",
+    description: "Certificate of completion for developing modern frontend projects with responsive layouts, JavaScript modules, and Git collaboration.",
+    skills: ["React.js", "JavaScript", "HTML5 & CSS3", "Git"]
+  },
+  {
+    id: "ebank",
+    title: "Banking Technology & Operations Internship",
+    issuer: "EBank (Export Development Bank of Egypt)",
+    badge: "Banking Internship",
     date: "Certified",
-    description: "Rigorous program in modern client-side technologies, DOM manipulation, responsive cross-device layouts, and modern JavaScript standards.",
-    skills: ["JavaScript", "HTML5", "CSS3", "Responsive Web Design"]
+    image: "/certificates/ebank.jpg",
+    description: "Corporate banking internship focusing on financial banking systems, institutional operations, fintech integrations, and business professionalism.",
+    skills: ["Banking Systems", "Financial Tech", "Professional Operations"]
   },
   {
-    title: "Artificial Intelligence Course",
-    issuer: "HP LIFE Online Learning",
-    badge: "AI & Innovation",
-    date: "Certified",
-    description: "Foundational training in Artificial Intelligence paradigms, data ethics, practical business applications, and machine learning fundamentals.",
-    skills: ["AI Fundamentals", "Machine Learning Concepts", "Tech Strategy"]
-  },
-  {
-    title: "Fundamentals of Digital Marketing",
-    issuer: "Banque Misr & Google",
-    badge: "Industry Program",
-    date: "06/2026",
-    description: "Strategic program on digital presence, consumer behavior analytics, search optimization, and modern online marketing channels.",
-    skills: ["Digital Strategy", "Analytics", "Web Presence"]
-  },
-  {
+    id: "cib",
     title: "AI in Banking & Renewable Energy Systems",
     issuer: "CIB Bank",
     badge: "Fintech & Sustainability",
     date: "06/2026",
+    image: "/certificates/cib.jpg",
     description: "Specialized corporate internship exploring AI deployment within commercial banking operations, sustainability via renewable energy, and workplace soft skills.",
     skills: ["AI in Banking", "Renewable Energy", "Corporate Skills", "Fintech"]
+  },
+  {
+    id: "bankmasr",
+    title: "Fundamentals of Digital Marketing",
+    issuer: "Banque Misr & Google",
+    badge: "Industry Program",
+    date: "06/2026",
+    image: "/certificates/bankmasr.jpg",
+    description: "Strategic program on digital presence, consumer behavior analytics, search optimization, and modern online marketing channels.",
+    skills: ["Digital Strategy", "Analytics", "Web Presence"]
   }
 ];

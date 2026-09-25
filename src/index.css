@@ -949,6 +949,117 @@ body {
   margin-bottom: 8px;
 }
 
+/* Experience Card Layout with Photo */
+.exp-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.exp-card-grid.has-photo {
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: center;
+}
+
+.exp-card-grid.has-multiple-photos {
+  grid-template-columns: 1fr 380px;
+}
+
+.exp-photo-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.exp-photo-single,
+.exp-photo-item {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.exp-photo-single:hover,
+.exp-photo-item:hover {
+  transform: translateY(-3px);
+}
+
+.exp-photo-frame {
+  width: 100%;
+  height: 220px;
+  background: #040812;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+
+.exp-photo-single:hover .exp-photo-frame,
+.exp-photo-item:hover .exp-photo-frame {
+  border-color: var(--color-cyan);
+  box-shadow: 0 12px 30px rgba(6, 182, 212, 0.25);
+}
+
+.exp-photo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
+
+.exp-photo-zoom-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(9, 14, 27, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  color: var(--color-cyan);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.exp-photo-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-cyan);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0.85;
+}
+
+.exp-photo-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .exp-card-grid.has-photo {
+    grid-template-columns: 1fr;
+  }
+  .exp-photo-frame {
+    height: 240px;
+  }
+}
+
 /* Projects Section */
 .projects-section {
   padding: 90px 0;

@@ -104,8 +104,13 @@
     .timeline-item { position: relative; margin-bottom: 36px; }
     .timeline-marker { position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #090d16; border: 3px solid var(--color-cyan); }
     .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .exp-card-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .exp-card-grid.has-photo { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: center; }
+    .exp-photo-frame { width: 100%; height: 200px; background: #040812; border: 1px solid rgba(6, 182, 212, 0.25); border-radius: var(--radius-md); overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 10px; }
+    .exp-photo-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
     @media (max-width: 900px) {
-      .hero-grid, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .hero-grid, .skills-grid, .projects-grid, .certs-grid, .exp-card-grid.has-photo { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -259,6 +264,104 @@
             </div>
           </section>
 
+          {/* Experience */}
+          <section id="experience" style={{ padding: '70px 0' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span className="section-pill">Career Journey</span>
+                <h2 className="section-title">Work & Practical Experience</h2>
+                <div className="section-divider"></div>
+              </div>
+              <div className="timeline">
+                {[
+                  {
+                    title: "Data Engineering Trainee",
+                    company: "DEPI Data Engineering",
+                    period: "07/2026 – Present",
+                    desc: "Hands-on data engineering track focused on distributed systems, Python data pipelines, and Microsoft Azure Cloud.",
+                    img: "./public/certificates/depi.jpg",
+                    skills: ["Python", "SQL", "Big Data", "Azure Cloud"]
+                  },
+                  {
+                    title: "Techno-Functional Intern",
+                    company: "SMG Engineering Auto",
+                    period: "07/2026 – 08/2026",
+                    desc: "Configured and validated enterprise order workflows and transactional data integrity checks in Oracle E-Business Suite.",
+                    images: ["./public/certificates/smg.jpg", "./public/certificates/smg-2.jpg"],
+                    skills: ["Order Management", "O2C Flows", "SQL Auditing"]
+                  },
+                  {
+                    title: "Banking Technology & Operations Intern",
+                    company: "EBank (Export Development Bank of Egypt)",
+                    period: "07/2025 – 08/2025",
+                    desc: "Corporate banking internship focusing on banking systems architecture, financial transactional workflows, and institutional fintech.",
+                    img: "./public/certificates/ebank.jpg",
+                    skills: ["Banking Systems", "Financial Tech", "Enterprise Operations"]
+                  },
+                  {
+                    title: "AI in Banking & Sustainability Intern",
+                    company: "CIB Bank",
+                    period: "06/2026 – 07/2026",
+                    desc: "Specialized corporate internship exploring AI deployment within modern commercial banking, fraud detection principles, and sustainability.",
+                    img: "./public/certificates/cib.jpg",
+                    skills: ["AI in Banking", "Fintech", "Sustainability"]
+                  },
+                  {
+                    title: "Frontend Web Developer Intern",
+                    company: "CodeAlpha",
+                    period: "03/2025 – 04/2025",
+                    desc: "Developed modern, responsive front-end web applications with clean code architecture and responsive CSS styling.",
+                    img: "./public/certificates/codealpha.jpg",
+                    skills: ["React.js", "JavaScript", "HTML5/CSS3", "Git"]
+                  },
+                  {
+                    title: "Sales and Customer Support Representative",
+                    company: "Orange Egypt",
+                    period: "07/2025 – Present",
+                    desc: "Frontline technical problem-solver and client communications specialist at one of Egypt's leading telecom corporations.",
+                    skills: ["Problem Solving", "Customer Support", "CRM Tools"]
+                  }
+                ].map((exp, idx) => (
+                  <div key={idx} className="timeline-item">
+                    <div className="timeline-marker"></div>
+                    <div className="card-glass" style={{ padding: '24px' }}>
+                      <div className={`exp-card-grid ${(exp.img || exp.images) ? 'has-photo' : ''}`}>
+                        <div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '8px' }}>
+                            <div>
+                              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff' }}>{exp.title}</h3>
+                              <div style={{ color: 'var(--color-cyan)', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>{exp.company}</div>
+                            </div>
+                            <span style={{ color: 'var(--text-muted)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>{exp.period}</span>
+                          </div>
+                          <p style={{ color: 'var(--text-gray)', fontSize: '13px', lineHeight: '1.6', marginBottom: '14px' }}>{exp.desc}</p>
+                          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                            {exp.skills.map((s, si) => (
+                              <span key={si} className="tag-badge">{s}</span>
+                            ))}
+                          </div>
+                        </div>
+                        {(exp.images && exp.images.length > 1) ? (
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                            {exp.images.map((im, imi) => (
+                              <div key={imi} className="exp-photo-frame" style={{ height: '170px' }}>
+                                <img src={im} alt={`${exp.title} ${imi + 1}`} onError={(e) => { e.target.style.display = 'none'; }} />
+                              </div>
+                            ))}
+                          </div>
+                        ) : exp.img ? (
+                          <div className="exp-photo-frame">
+                            <img src={exp.img} alt={exp.title} onError={(e) => { e.target.style.display = 'none'; }} />
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Projects */}
           <section id="projects" style={{ padding: '70px 0', background: 'rgba(10,15,29,0.5)' }}>
             <div className="container">
@@ -298,6 +401,51 @@
                     </a>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Certifications & Internships */}
+          <section id="certifications" style={{ padding: '70px 0' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <span className="section-pill">Credentials & Internships</span>
+                <h2 className="section-title">Certifications & Experience Photos</h2>
+                <p className="section-subtitle">Verified certificates and internship documentation from DEPI, CIB, Mahara-Tech, HP LIFE, and more.</p>
+                <div className="section-divider"></div>
+              </div>
+              <div className="certs-grid">
+                {[
+                  { title: "Building Web Apps using PHP & MySQL", issuer: "Mahara-Tech ITI", img: "./public/certificates/maharatech.jpg", tag: "Full-Stack Web" },
+                  { title: "HP Intro to Data Science", issuer: "HP LIFE (Data Science & Analytics)", img: "./public/certificates/hp.jpg", tag: "Data Science" },
+                  { title: "Frontend Web Development Internship", issuer: "CodeAlpha", img: "./public/certificates/codealpha.jpg", tag: "Internship" },
+                  { title: "Banking Tech & Operations Internship", issuer: "EBank", img: "./public/certificates/ebank.jpg", tag: "Banking" },
+                  { title: "AI in Banking & Renewable Energy", issuer: "CIB Bank", img: "./public/certificates/cib.jpg", tag: "Fintech" },
+                  { title: "Fundamentals of Digital Marketing", issuer: "Banque Misr & Google", img: "./public/certificates/bankmasr.jpg", tag: "Marketing" }
+                ].map((c, i) => (
+                  <div key={i} className="card-glass" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                    {(c.images && c.images.length > 1) ? (
+                      <div style={{ height: '220px', overflow: 'hidden', background: '#040812', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px' }}>
+                        {c.images.map((im, imi) => (
+                          <div key={imi} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+                            <img src={im} alt={`${c.title} ${imi + 1}`} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div style={{ height: '220px', overflow: 'hidden', background: '#050a14', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px' }}>
+                        <img src={c.img} alt={c.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '6px' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                      </div>
+                    )}
+                    <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                      <div>
+                        <span className="section-pill" style={{ margin: 0, padding: '2px 8px', fontSize: '10px' }}>{c.tag}</span>
+                        <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginTop: '8px', marginBottom: '4px' }}>{c.title}</h4>
+                        <div style={{ fontSize: '12px', color: 'var(--color-cyan)', fontFamily: 'var(--font-mono)' }}>{c.issuer}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
