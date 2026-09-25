@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, MapPin, Calendar, Check, Code, Database, Server, Briefcase, Users, Cpu } from './Icons';
+import { GraduationCap, MapPin, Calendar, Check, Code, Database, Server, Briefcase, Users, Cpu, Download, FileText, ExternalLink } from './Icons';
 import { education, personalInfo } from '../data/portfolioData';
 
 export default function About() {
@@ -59,6 +59,60 @@ export default function About() {
                 I thrive in environments where clean architecture, reliability, and measurable user impact converge. Whether orchestrating full-stack services like the 
                 <em style={{ color: '#fff' }}> Khedma 5&6 Web Application</em> or building high-performance data processing workflows, I ensure every line of code meets strict professional standards.
               </p>
+
+              {/* Download CV Action Banner */}
+              <div style={{
+                marginTop: '24px',
+                paddingTop: '20px',
+                borderTop: '1px solid var(--border-subtle)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '16px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
+                    background: 'rgba(6, 182, 212, 0.12)',
+                    color: 'var(--color-cyan)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(6, 182, 212, 0.25)'
+                  }}>
+                    <FileText size={22} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: '14px', color: '#fff' }}>Curriculum Vitae (CV)</div>
+                    <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>Official PDF • Complete Work & Education</div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <a
+                    href="/Phelobater_Bassem_Basha_CV.pdf"
+                    download="Phelobater_Bassem_Basha_CV.pdf"
+                    className="btn-primary"
+                    style={{ padding: '10px 20px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <Download size={15} />
+                    <span>Download CV</span>
+                  </a>
+                  <a
+                    href="/Phelobater_Bassem_Basha_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                    style={{ padding: '10px 16px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <ExternalLink size={13} />
+                    <span>Preview</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="about-pillars-grid">
@@ -131,6 +185,18 @@ export default function About() {
                 <div><span style={{ color: 'var(--text-muted)' }}>Email:</span> terobassem.5@gmail.com</div>
                 <div><span style={{ color: 'var(--text-muted)' }}>Phone:</span> +20 122 864 6329</div>
                 <div><span style={{ color: 'var(--text-muted)' }}>Status:</span> Open to Software Engineering Opportunities</div>
+              </div>
+
+              <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)' }}>
+                <a
+                  href="/Phelobater_Bassem_Basha_CV.pdf"
+                  download="Phelobater_Bassem_Basha_CV.pdf"
+                  className="btn-primary"
+                  style={{ width: '100%', justifyContent: 'center', fontSize: '13px', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '8px' }}
+                >
+                  <Download size={14} />
+                  <span>Download Curriculum Vitae (PDF)</span>
+                </a>
               </div>
             </div>
           </div>
