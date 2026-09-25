@@ -121,15 +121,15 @@ export default function About() {
             </div>
 
             {/* Quick Contact Card */}
-            <div className="card-glass" style={{ padding: '24px', marginTop: '20px' }}>
+            <div className="card-glass about-contact-card" style={{ padding: '24px', marginTop: '20px' }}>
               <div style={{ fontSize: '14px', fontWeight: 700, fontFamily: 'var(--font-mono)', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                 <span className="status-dot"></span>
                 <span>Contact & Residence</span>
               </div>
               <div style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--text-gray)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div><span style={{ color: 'var(--text-muted)' }}>Location:</span> 19 Eladawy st, El Maadi, Cairo, Egypt</div>
-                <div><span style={{ color: 'var(--text-muted)' }}>Email:</span> terobassem.5@gmail.com</div>
-                <div><span style={{ color: 'var(--text-muted)' }}>Phone:</span> +20 122 864 6329</div>
+                <div style={{ wordBreak: 'break-word' }}><span style={{ color: 'var(--text-muted)' }}>Location:</span> 19 Eladawy st, El Maadi, Cairo, Egypt</div>
+                <div style={{ wordBreak: 'break-all' }}><span style={{ color: 'var(--text-muted)' }}>Email:</span> terobassem.5@gmail.com</div>
+                <div style={{ wordBreak: 'break-word' }}><span style={{ color: 'var(--text-muted)' }}>Phone:</span> +20 122 864 6329</div>
                 <div><span style={{ color: 'var(--text-muted)' }}>Status:</span> Open to Software Engineering Opportunities</div>
               </div>
 

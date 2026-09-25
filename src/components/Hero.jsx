@@ -153,17 +153,15 @@ export default function Hero() {
             </div>
 
             {/* Quick Specs Pill */}
-            <div className="card-glass" style={{ padding: '10px 16px', display: 'flex', gap: '8px', alignItems: 'center', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
+            <div className="card-glass hero-specs-pill" style={{ padding: '10px 16px', display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
               <span className="status-dot"></span>
               <span style={{ color: 'var(--text-muted)' }}>Specialties:</span>
               <span className="tag-badge">React</span>
               <span className="tag-badge">Node</span>
               <span className="tag-badge">SQL</span>
               <span className="tag-badge">Python</span>
-                            <span className="tag-badge">Spark</span>
-                                          <span className="tag-badge">BigData</span>
-
-
+              <span className="tag-badge">Spark</span>
+              <span className="tag-badge">BigData</span>
             </div>
           </div>
 
