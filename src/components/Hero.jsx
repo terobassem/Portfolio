@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import CodeSnippet from './CodeSnippet';
-import { ArrowRight, ArrowUpRight, Database, Layers, Mail, MapPin, ShieldCheck } from './Icons';
+import { ArrowRight, ArrowUpRight, Database, Download, Layers, Mail, MapPin, ShieldCheck } from './Icons';
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -79,14 +79,28 @@ export default function Hero() {
 
             {/* Action Buttons */}
             <div className="hero-btn-row">
-              <a href="#projects" className="btn-primary">
-                <span>Explore Featured Work</span>
-                <ArrowRight size={16} />
+              <a
+                href="/Phelobater_Bassem_Basha_CV.pdf"
+                download="Phelobater_Bassem_Basha_CV.pdf"
+                className="btn-primary"
+                style={{
+                  background: 'linear-gradient(135deg, #06b6d4, #2563eb)',
+                  boxShadow: '0 8px 24px rgba(6, 182, 212, 0.35)',
+                  fontWeight: 700
+                }}
+              >
+                <Download size={16} />
+                <span>Download CV</span>
+              </a>
+
+              <a href="#projects" className="btn-secondary">
+                <span>View Projects</span>
+                <ArrowRight size={15} />
               </a>
 
               <a href="#contact" className="btn-secondary">
-                <Mail size={16} color="#06b6d4" />
-                <span>Contact Phelobater</span>
+                <Mail size={15} color="#06b6d4" />
+                <span>Get in Touch</span>
               </a>
 
               <a
@@ -96,7 +110,7 @@ export default function Hero() {
                 className="btn-secondary"
               >
                 <span>LinkedIn</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={13} />
               </a>
             </div>
 

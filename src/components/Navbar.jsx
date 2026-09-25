@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Terminal } from './Icons';
+import { Menu, X, ArrowUpRight, Terminal, Download } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar() {
@@ -68,7 +68,16 @@ export default function Navbar() {
         </div>
 
         {/* Quick CTA Actions */}
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <a
+            href="/Phelobater_Bassem_Basha_CV.pdf"
+            download="Phelobater_Bassem_Basha_CV.pdf"
+            className="btn-secondary"
+            style={{ padding: '7px 14px', fontSize: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-cyan)', borderColor: 'rgba(6,182,212,0.35)' }}
+          >
+            <Download size={13} />
+            <span>Download CV</span>
+          </a>
           <a href="#contact" className="btn-primary" style={{ padding: '8px 18px', fontSize: '13px' }}>
             <span>Get in Touch</span>
             <ArrowUpRight size={14} />
@@ -98,6 +107,16 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href="/Phelobater_Bassem_Basha_CV.pdf"
+            download="Phelobater_Bassem_Basha_CV.pdf"
+            onClick={() => setIsOpen(false)}
+            className="btn-secondary"
+            style={{ width: '100%', justifyContent: 'center', marginTop: '12px', color: 'var(--color-cyan)', borderColor: 'rgba(6,182,212,0.4)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Download size={14} />
+            <span>Download CV (PDF)</span>
+          </a>
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
