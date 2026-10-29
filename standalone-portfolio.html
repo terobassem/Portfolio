@@ -294,6 +294,14 @@
               <div className="timeline">
                 {[
                   {
+                    title: "Python Data Analyst Intern",
+                    company: "Auspify Tech",
+                    period: "09/2026 – Present",
+                    desc: "Conducted exploratory data analysis, data wrangling, and metric evaluation on large-scale media catalogs using Python, Pandas, Matplotlib, and Seaborn.",
+                    img: "./public/auspify/netflix-top-countries.png",
+                    skills: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA"]
+                  },
+                  {
                     title: "Data Engineering Trainee",
                     company: "DEPI Data Engineering",
                     period: "07/2026 – Present",
@@ -385,11 +393,76 @@
           <section id="projects" style={{ padding: '70px 0', background: 'rgba(10,15,29,0.5)' }}>
             <div className="container">
               <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-                <span className="section-pill">Featured Project</span>
-                <h2 className="section-title">Production Web Application</h2>
+                <span className="section-pill">Featured Projects</span>
+                <h2 className="section-title">Production & Analytics Projects</h2>
+                <p className="section-subtitle">Real-world full-stack web platforms and exploratory data analytics pipelines.</p>
                 <div className="section-divider"></div>
               </div>
-              <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{ maxWidth: '880px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                
+                {/* Project 1: Auspify Tech Netflix Data Analysis */}
+                <div className="card-glass" style={{ padding: '36px', borderColor: 'rgba(6,182,212,0.4)', boxShadow: '0 20px 40px rgba(6,182,212,0.1)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <span className="section-pill" style={{ margin: 0, padding: '3px 10px', fontSize: '11px' }}>Python Data Analysis</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', background: 'rgba(59,130,246,0.15)', color: 'var(--color-blue)', border: '1px solid rgba(59,130,246,0.3)', padding: '3px 8px', borderRadius: '9999px', fontWeight: 600 }}>Auspify Tech</span>
+                    </div>
+                    <span style={{ color: 'var(--color-cyan)', fontSize: '12px', fontFamily: 'var(--font-mono)', background: 'rgba(6,182,212,0.1)', padding: '4px 10px', borderRadius: '9999px', border: '1px solid rgba(6,182,212,0.3)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span className="status-dot"></span>
+                      <span>8,000+ Records Analyzed</span>
+                    </span>
+                  </div>
+                  <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>Netflix Content & Trend Data Analysis</h3>
+                  <div style={{ color: 'var(--color-cyan)', fontSize: '13px', fontFamily: 'var(--font-mono)', marginBottom: '16px' }}>Exploratory Data Analysis, Market Insights & Growth Modeling</div>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '14px', lineHeight: '1.7', marginBottom: '20px' }}>
+                    End-to-end Python exploratory data analysis (EDA) and business intelligence project conducted on Netflix's global content catalog. Implemented comprehensive data cleaning pipelines, statistical distribution analyses, and time-series growth tracking across 8,000+ title records.
+                  </p>
+                  
+                  {/* Visual charts preview */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+                    <div style={{ background: '#040812', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(6,182,212,0.2)', padding: '8px' }}>
+                      <div style={{ height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0b1120', borderRadius: '6px', overflow: 'hidden' }}>
+                        <img src="./public/auspify/netflix-movies-tv-proportion.png" alt="Proportion Pie Chart" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      </div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: '#fff', marginTop: '6px' }}>Movies vs TV (69.7% vs 30.3%)</div>
+                      <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Content distribution breakdown</div>
+                    </div>
+                    <div style={{ background: '#040812', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(6,182,212,0.2)', padding: '8px' }}>
+                      <div style={{ height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0b1120', borderRadius: '6px', overflow: 'hidden' }}>
+                        <img src="./public/auspify/netflix-top-countries.png" alt="Top Countries Bar Chart" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      </div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: '#fff', marginTop: '6px' }}>Top 10 Countries by Content</div>
+                      <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>US (3000+) & India (1000+) leading</div>
+                    </div>
+                    <div style={{ background: '#040812', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(6,182,212,0.2)', padding: '8px' }}>
+                      <div style={{ height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0b1120', borderRadius: '6px', overflow: 'hidden' }}>
+                        <img src="./public/auspify/netflix-yearly-growth-rate.png" alt="Growth Rate Line Chart" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      </div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: '#fff', marginTop: '6px' }}>Yearly Content Growth Rate</div>
+                      <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Time-series acceleration trends</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+                    <span className="tag-badge">Python</span>
+                    <span className="tag-badge">Pandas</span>
+                    <span className="tag-badge">NumPy</span>
+                    <span className="tag-badge">Matplotlib</span>
+                    <span className="tag-badge">Seaborn</span>
+                    <span className="tag-badge">Jupyter</span>
+                    <span className="tag-badge">EDA</span>
+                  </div>
+                  <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                    <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                      Completed at Auspify Tech Internship
+                    </span>
+                    <a href="https://github.com/terobassem" target="_blank" className="btn-primary" style={{ padding: '10px 20px', fontSize: '13px' }}>
+                      View on GitHub ↗
+                    </a>
+                  </div>
+                </div>
+
+                {/* Project 2: Khedma 5&6 Web Application */}
                 <div className="card-glass" style={{ padding: '36px', borderColor: 'rgba(6,182,212,0.4)', boxShadow: '0 20px 40px rgba(6,182,212,0.1)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
                     <span className="section-pill" style={{ margin: 0, padding: '3px 10px', fontSize: '11px' }}>Featured MERN Stack App</span>
@@ -420,6 +493,7 @@
                     </a>
                   </div>
                 </div>
+
               </div>
             </div>
           </section>

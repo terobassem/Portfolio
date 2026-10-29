@@ -4,10 +4,11 @@ export const personalInfo = {
   tagline: "Building scalable web platforms, robust data pipelines, and high-reliability software solutions.",
   roles: [
     "Software Engineer",
+    "Python & Data Analyst",
     "Full-Stack MERN Developer",
     "Data & Cloud Engineer"
   ],
-  bio: "Passionate Software Engineer currently studying at Helwan University (Faculty of Computers & Artificial Intelligence, Information Systems). Experienced in end-to-end web engineering with the MERN stack (MongoDB, Express, React, Node.js) and cloud data engineering with Python, SQL, and Azure. Driven by writing clean, maintainable code and solving complex technical challenges.",
+  bio: "Passionate Software Engineer currently studying at Helwan University (Faculty of Computers & Artificial Intelligence, Information Systems). Experienced in end-to-end web engineering with the MERN stack (MongoDB, Express, React, Node.js), exploratory data analysis with Python at Auspify Tech, and cloud data engineering with Python, SQL, and Azure. Driven by writing clean, maintainable code and solving complex technical challenges.",
   email: "terobassem.5@gmail.com",
   phone: "01228646329",
   phoneFormatted: "+20 122 864 6329",
@@ -20,9 +21,9 @@ export const personalInfo = {
   },
   stats: [
     { label: "University Year", value: "FCI Helwan" },
-    { label: "Core Stacks", value: "MERN & SQL" },
-    { label: "Primary Focus", value: "Full Stack" },
-    { label: "Data Engineering", value: "Python & Azure" }
+    { label: "Core Stacks", value: "Python & MERN" },
+    { label: "Data Analytics", value: "Auspify Tech" },
+    { label: "Data Engineering", value: "DEPI & Azure" }
   ]
 };
 
@@ -39,6 +40,29 @@ export const education = {
 };
 
 export const experiences = [
+  {
+    id: "auspify-tech",
+    title: "Python Data Analyst Intern",
+    company: "Auspify Tech",
+    type: "Data Analytics & Intelligence",
+    period: "09/2026 – Present",
+    location: "Remote",
+    badge: "Analytics",
+    image: "/auspify/netflix-top-countries.png",
+    images: [
+      "/auspify/netflix-top-countries.png",
+      "/auspify/netflix-movies-tv-proportion.png",
+      "/auspify/netflix-yearly-growth-rate.png"
+    ],
+    description: "Conducted exploratory data analysis, data wrangling, and metric evaluation on large-scale media catalogs using Python, Pandas, Matplotlib, and Seaborn.",
+    skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter Notebook", "EDA", "Data Visualization"],
+    highlights: [
+      "Performed data cleansing and preprocessing on multi-thousand row media catalogs, imputing missing values and normalizing formats",
+      "Built interactive exploratory visualizations including content distribution breakdowns, country-level rankings, and growth rate trajectories",
+      "Delivered business insights and statistical summaries uncovering catalog trends and international market opportunities",
+      "Documented analytical workflows, code modules, and visual reporting within Jupyter notebooks"
+    ]
+  },
   {
     id: "depi",
     title: "Data Engineering Trainee",
@@ -127,6 +151,47 @@ export const experiences = [
 ];
 
 export const projects = [
+  {
+    id: "auspify-netflix-analysis",
+    title: "Netflix Content & Trend Data Analysis",
+    company: "Auspify Tech",
+    featured: true,
+    tag: "Python Data Analysis",
+    subtitle: "Exploratory Data Analysis, Market Insights & Growth Modeling",
+    description: "End-to-end Python exploratory data analysis (EDA) and business intelligence project conducted on Netflix's global content catalog. Implemented comprehensive data cleaning pipelines, statistical distribution analyses, and time-series growth tracking across 8,000+ title records.",
+    architecture: "Built modular Jupyter notebook analysis pipelines (Task 1 to Task 4) utilizing Pandas for data manipulation, NumPy for vector operations, and Matplotlib/Seaborn for data storytelling. Extracted catalog composition metrics, top content producing nations, and decade-over-decade expansion velocity.",
+    tags: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "EDA", "Data Viz", "Business Insights"],
+    highlights: [
+      "Wrangled and cleaned raw catalog records: handled missing data across directors, cast, and geographic fields, standardizing release dates and runtime metrics",
+      "Catalog Composition Analysis: quantified content distribution revealing 69.7% Movies vs 30.3% TV Shows across global titles",
+      "Geographic Market Intelligence: identified top 10 content-producing hubs led by the US (3,000+ titles), India (1,000+ titles), and the UK",
+      "Velocity & Growth Modeling: tracked yearly content release acceleration and evaluated year-over-year growth percentage trajectories",
+      "Formulated actionable acquisition and production strategies based on content lifecycle and genre popularity patterns"
+    ],
+    visualizations: [
+      {
+        title: "Content Distribution (69.7% Movies vs 30.3% TV Shows)",
+        type: "Pie Chart",
+        image: "/auspify/netflix-movies-tv-proportion.png",
+        caption: "Proportional distribution of feature films versus multi-season TV shows"
+      },
+      {
+        title: "Top 10 Producing Countries by Volume",
+        type: "Bar Chart",
+        image: "/auspify/netflix-top-countries.png",
+        caption: "Country-level breakdown showing leading global production markets"
+      },
+      {
+        title: "Yearly Content Growth Rate Trajectory",
+        type: "Line Chart",
+        image: "/auspify/netflix-yearly-growth-rate.png",
+        caption: "Annual volume growth percentage and catalog expansion velocity over time"
+      }
+    ],
+    demoLink: "https://github.com/terobassem",
+    codeLink: "https://github.com/terobassem",
+    metrics: "Analyzed 8,000+ Records Across 10+ Global Markets"
+  },
   {
     id: "khedma-app",
     title: "Khedma 5&6 Web Application",
