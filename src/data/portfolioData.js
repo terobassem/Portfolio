@@ -238,7 +238,7 @@ export const projects = [
     ],
     demoLink: "https://whitelily-artworks.com/",
     codeLink: "https://whitelily-artworks.com/",
-    metrics: "Live on Vercel · whitelily-artworks.com"
+    metrics: "whitelily-artworks.com"
   },
   {
     id: "khedma-app",
