@@ -199,18 +199,39 @@ export const projects = [
     tag: "Python ETL & Data Engineering",
     subtitle: "End-to-End Extract, Transform & Load Pipeline for Retail Sales Analytics",
     description: "Production-grade ETL pipeline built with Python, Pandas, and NumPy to ingest, clean, transform, and analyze retail sales transaction data. Delivers automated data quality checks, business KPI computations, and Matplotlib-driven visual reporting across multiple product categories and regional markets.",
-    architecture: "Modular Python ETL architecture: Extract phase reads raw CSV/Excel retail datasets; Transform phase applies data cleansing (null handling, type casting, outlier detection), feature engineering (revenue calculations, time-based aggregations), and business rule validations; Load phase outputs clean analytical datasets and generates Matplotlib summary dashboards. Designed for extensibility with configurable pipeline stages.",
+    architecture: "Modular Python ETL architecture: Extract phase (extract.py) reads raw CSV/Excel datasets; Cleaning phase (cleaning.py & quality_check.py) handles null imputation, type casting, and anomaly detection; Transform phase (transform.py & analysis.py) computes revenue and category-level KPIs; Load phase (load.py) exports transformed CSV/JSON files and generates Matplotlib dashboard charts (outputs/visualizations).",
     tags: ["Python", "Pandas", "NumPy", "Matplotlib", "ETL", "Data Pipeline", "Data Cleaning", "Analytics"],
     highlights: [
       "Designed modular Extract-Transform-Load pipeline processing retail transaction records with automated data quality validation",
       "Implemented comprehensive data cleansing: null imputation, duplicate removal, data type standardization, and outlier flagging",
       "Engineered feature transformations including revenue aggregation, category-level KPIs, and time-series sales trend analysis",
       "Built Matplotlib visual reporting layer generating sales distribution charts, category performance breakdowns, and trend visualizations",
-      "Structured pipeline for reusability with clean separation of ETL stages and configurable transformation rules"
+      "Structured pipeline for reusability with clean separation of ETL stages (extract, cleaning, transform, load) and configurable transformation rules"
+    ],
+    visualizations: [
+      {
+        title: "Project Architecture & Directory Layout",
+        type: "Architecture",
+        image: "/retail/project_structure.png",
+        caption: "Modular directory layout: raw data ingestion, notebooks, src ETL modules, outputs, and documentation"
+      },
+      {
+        title: "Revenue by Product Line Analysis",
+        type: "Visualization",
+        image: "/retail/product_line_revenue.png",
+        caption: "Matplotlib output chart comparing sales revenue across electronic accessories, food, and lifestyle products"
+      },
+      {
+        title: "main.py Pipeline Orchestration",
+        type: "Code / Workflow",
+        image: "/retail/etl_pipeline_code.png",
+        caption: "End-to-end orchestration: Extract → Clean → Transform → Load execution sequence"
+      }
     ],
     demoLink: "https://github.com/terobassem/retail-sales-etl-pipeline",
     codeLink: "https://github.com/terobassem/retail-sales-etl-pipeline",
-    metrics: "End-to-End ETL Pipeline on GitHub"
+    linkedinLink: "https://lnkd.in/p/ei8fshjz",
+    metrics: "github.com/terobassem/retail-sales-etl-pipeline"
   },
   {
     id: "whitelily-artworks",

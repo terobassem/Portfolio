@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Check, ArrowRight, Layers, Sparkles, BarChart, TrendingUp, X } from './Icons';
+import { ExternalLink, Check, ArrowRight, Layers, Sparkles, BarChart, TrendingUp, X, Linkedin } from './Icons';
 import { projects } from '../data/portfolioData';
 
 export default function Projects() {
@@ -404,24 +404,48 @@ export default function Projects() {
                   <ArrowRight size={13} />
                 </button>
 
-                {project.demoLink && (
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-primary"
-                    style={{ fontSize: '13px', padding: '10px 20px' }}
-                  >
-                    <span>
-                      {project.demoLink.includes('railway')
-                        ? 'Open Live Application'
-                        : project.demoLink.includes('whitelily')
-                        ? 'Visit Website'
-                        : 'View Source Code'}
-                    </span>
-                    <ExternalLink size={14} />
-                  </a>
-                )}
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  {project.linkedinLink && (
+                    <a
+                      href={project.linkedinLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-secondary"
+                      style={{
+                        fontSize: '13px',
+                        padding: '10px 18px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: '#38bdf8',
+                        borderColor: 'rgba(56, 189, 248, 0.35)'
+                      }}
+                    >
+                      <Linkedin size={14} color="#38bdf8" />
+                      <span>LinkedIn Post</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-primary"
+                      style={{ fontSize: '13px', padding: '10px 20px' }}
+                    >
+                      <span>
+                        {project.demoLink.includes('railway')
+                          ? 'Open Live Application'
+                          : project.demoLink.includes('whitelily')
+                          ? 'Visit Website'
+                          : 'View on GitHub'}
+                      </span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
 
               {/* Expandable Architecture View */}
