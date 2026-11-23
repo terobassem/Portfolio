@@ -216,20 +216,29 @@ export const projects = [
     id: "whitelily-artworks",
     title: "Whitelily Artworks Website",
     featured: true,
-    tag: "Frontend Web Development",
-    subtitle: "Heritage-Inspired Art & Gypsum Craft Brand Website",
-    description: "Professional brand website built for WHITELILY by Lydia Malak — an art and design studio specializing in heritage-inspired gypsum creations and fine art. Showcases the full product catalog including architectural gypsum tiles, stained-glass gypsum windows, carved relief panels, gypsum mosaics, and fresco paintings.",
-    architecture: "Fully responsive multi-section website built with modern HTML5, CSS3, and JavaScript. Features product gallery displays, brand storytelling layout, and mobile-first responsive design optimized for art and craft presentation.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "UI/UX", "Web Design", "Frontend"],
+    tag: "Next.js Web Development",
+    subtitle: "Heritage-Inspired Art & Gypsum Craft Brand Website — Live Production",
+    description: "Professional brand website built with Next.js and React for WHITELILY by Lydia Malak — an art and design studio specializing in heritage-inspired gypsum creations and fine art. Features a cinematic hero section with background video, bilingual branding, and elegant editorial layout. Deployed on Vercel with custom domain.",
+    architecture: "Built with Next.js App Router and React on the frontend, deployed on Vercel with a custom domain. Features HTML5 video/audio integration for a studio documentary, responsive multi-section layout (hero, artist bio, artwork film, contact), and performance-optimized asset delivery via Next.js static pipelines.",
+    tags: ["Next.js", "React", "Vercel", "HTML5", "CSS3", "Responsive Design", "UI/UX"],
     highlights: [
-      "Designed and developed a visually rich brand website for a heritage art and gypsum craft studio",
-      "Built responsive product gallery showcasing architectural gypsum tiles, stained-glass windows, carved panels, and mosaics",
-      "Implemented modern UI/UX patterns with clean visual hierarchy suited to luxury art brand identity",
-      "Deployed live production website accessible at whitelily-artworks.com"
+      "Built with Next.js (App Router) and React — deployed on Vercel with custom domain whitelily-artworks.com",
+      "Cinematic hero section with background video, sound toggle, and bilingual Arabic/English branding",
+      "Elegant editorial layout blending deep forest green and warm parchment tones with antique gold accents",
+      "Artist biography section featuring credentials from Faculty of Applied Arts & The King's Foundation School of Traditional Arts in London",
+      "Integrated HTML5 studio documentary film showcasing heritage gypsum craftsmanship in action"
+    ],
+    visualizations: [
+      {
+        title: "Whitelily Artworks — Live Website",
+        type: "Next.js App",
+        image: "/whitelily/preview.jpg",
+        caption: "Heritage gypsum craftsmanship brand website by Lydia Malak — built with Next.js & deployed on Vercel"
+      }
     ],
     demoLink: "https://whitelily-artworks.com/",
     codeLink: "https://whitelily-artworks.com/",
-    metrics: "Live Production Website"
+    metrics: "Live on Vercel · whitelily-artworks.com"
   },
   {
     id: "khedma-app",
