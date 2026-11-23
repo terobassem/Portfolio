@@ -193,6 +193,45 @@ export const projects = [
     metrics: "Analyzed 8,000+ Records Across 10+ Global Markets"
   },
   {
+    id: "retail-sales-etl",
+    title: "Retail Sales ETL Pipeline",
+    featured: true,
+    tag: "Python ETL & Data Engineering",
+    subtitle: "End-to-End Extract, Transform & Load Pipeline for Retail Sales Analytics",
+    description: "Production-grade ETL pipeline built with Python, Pandas, and NumPy to ingest, clean, transform, and analyze retail sales transaction data. Delivers automated data quality checks, business KPI computations, and Matplotlib-driven visual reporting across multiple product categories and regional markets.",
+    architecture: "Modular Python ETL architecture: Extract phase reads raw CSV/Excel retail datasets; Transform phase applies data cleansing (null handling, type casting, outlier detection), feature engineering (revenue calculations, time-based aggregations), and business rule validations; Load phase outputs clean analytical datasets and generates Matplotlib summary dashboards. Designed for extensibility with configurable pipeline stages.",
+    tags: ["Python", "Pandas", "NumPy", "Matplotlib", "ETL", "Data Pipeline", "Data Cleaning", "Analytics"],
+    highlights: [
+      "Designed modular Extract-Transform-Load pipeline processing retail transaction records with automated data quality validation",
+      "Implemented comprehensive data cleansing: null imputation, duplicate removal, data type standardization, and outlier flagging",
+      "Engineered feature transformations including revenue aggregation, category-level KPIs, and time-series sales trend analysis",
+      "Built Matplotlib visual reporting layer generating sales distribution charts, category performance breakdowns, and trend visualizations",
+      "Structured pipeline for reusability with clean separation of ETL stages and configurable transformation rules"
+    ],
+    demoLink: "https://github.com/terobassem/retail-sales-etl-pipeline",
+    codeLink: "https://github.com/terobassem/retail-sales-etl-pipeline",
+    metrics: "End-to-End ETL Pipeline on GitHub"
+  },
+  {
+    id: "whitelily-artworks",
+    title: "Whitelily Artworks Website",
+    featured: true,
+    tag: "Frontend Web Development",
+    subtitle: "Heritage-Inspired Art & Gypsum Craft Brand Website",
+    description: "Professional brand website built for WHITELILY by Lydia Malak — an art and design studio specializing in heritage-inspired gypsum creations and fine art. Showcases the full product catalog including architectural gypsum tiles, stained-glass gypsum windows, carved relief panels, gypsum mosaics, and fresco paintings.",
+    architecture: "Fully responsive multi-section website built with modern HTML5, CSS3, and JavaScript. Features product gallery displays, brand storytelling layout, and mobile-first responsive design optimized for art and craft presentation.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "UI/UX", "Web Design", "Frontend"],
+    highlights: [
+      "Designed and developed a visually rich brand website for a heritage art and gypsum craft studio",
+      "Built responsive product gallery showcasing architectural gypsum tiles, stained-glass windows, carved panels, and mosaics",
+      "Implemented modern UI/UX patterns with clean visual hierarchy suited to luxury art brand identity",
+      "Deployed live production website accessible at whitelily-artworks.com"
+    ],
+    demoLink: "https://whitelily-artworks.com/",
+    codeLink: "https://whitelily-artworks.com/",
+    metrics: "Live Production Website"
+  },
+  {
     id: "khedma-app",
     title: "Khedma 5&6 Web Application",
     featured: true,
@@ -244,7 +283,8 @@ export const skillCategories = [
     icon: "Database",
     skills: [
       { name: "SQL", highlighted: true },
-            { name: "Python for Data Analysis", highlighted: true },
+      { name: "Python for Data Analysis", highlighted: true },
+      { name: "ETL Pipelines", highlighted: true },
       { name: "Spark", highlighted: true },
       { name: "Data Warehouse", highlighted: true },
       { name: "Big Data Principles", highlighted: true },
